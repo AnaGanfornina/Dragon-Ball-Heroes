@@ -18,5 +18,10 @@ final class HeroTableViewCell: UITableViewCell {
     //MARK: - Configuration
     func configure(with hero: Hero){
         heroLabel.text = hero.rawValue
+        
+        guard let imageURL = hero.imageURL else{
+            return
+        }
+        heroImageView.setImage(url: imageURL)
     }
 }

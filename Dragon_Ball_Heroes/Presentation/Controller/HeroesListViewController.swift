@@ -20,5 +20,17 @@ final class HeroListViewController: UITableViewController {
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        dataSource = DataSource(tableView: tableView) {tableView, indexPath, hero in
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: HeroTableViewCell.identifier,
+                for: indexPath
+            )as? HeroTableViewCell else {
+                return UITableViewCell()
+            }
+        
+            cell.configure(with: hero)
+            return cell
+        }
     }
 }
