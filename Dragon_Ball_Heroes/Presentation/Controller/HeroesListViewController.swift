@@ -21,6 +21,10 @@ final class HeroListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.register(
+            UINib(nibName: HeroTableViewCell.identifier, bundle: nil),
+            forCellReuseIdentifier: HeroTableViewCell.identifier)
+        
         dataSource = DataSource(tableView: tableView) {tableView, indexPath, hero in
             guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: HeroTableViewCell.identifier,
@@ -32,5 +36,13 @@ final class HeroListViewController: UITableViewController {
             cell.configure(with: hero)
             return cell
         }
+        tableView.dataSource = dataSource
+        
+        var  snapshot = Snapshot()
+        snapshot.appendSections([0])
+        snapshot.appendItems (heroes)
+        dataSource?.apply(snapshot)
+        
     }
 }
+
