@@ -10,7 +10,9 @@ import UIKit
 extension UIImageView{
     func setImage(url:URL){
         downloadWithURLSession(url: url){[weak self] image in
-            self? .image = image
+            DispatchQueue.main.async {
+                self?.image = image
+            }
         }
     }
     

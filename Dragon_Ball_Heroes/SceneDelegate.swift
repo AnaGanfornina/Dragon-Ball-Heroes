@@ -15,7 +15,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(
         _ scene: UIScene,
         willConnectTo session: UISceneSession,
-        options connectionOptions: UIScene.ConnectionOptions) {
+        options connectionOptions: UIScene.ConnectionOptions
+    ) {
             //Desempaquetamos la scene
             guard let scene = (scene as? UIWindowScene) else {return}
             
@@ -23,10 +24,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: scene)
             
             //Instanciamos el primer view controller
-            let viewController = FirstViewController()
+            //let viewController = FirstViewController()
+        
+            
+            // Instanciamos nuestra lista de heroes
+        
+            let heroListViewController = HeroListViewController()
+            
             
             //Asignamos el prier vieo controller
-            window.rootViewController = viewController
+            window.rootViewController = heroListViewController
             window.makeKeyAndVisible()
             self.window = window
             
