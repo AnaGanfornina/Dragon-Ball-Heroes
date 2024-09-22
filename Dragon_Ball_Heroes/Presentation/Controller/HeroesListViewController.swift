@@ -44,5 +44,30 @@ final class HeroListViewController: UITableViewController {
         dataSource?.apply(snapshot)
         
     }
-}
+    
+    
+        
+    }
+// MARK: -Table View Delegate
 
+extension HeroListViewController{
+    override func tableView(
+        _ tableView: UITableView,
+        heightForRowAt indexPath: IndexPath
+    ) -> CGFloat {
+        100
+            
+    }
+    override func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
+        let hero = heroes[indexPath.row]
+        let detailViewController = HeroDetailViewController(hero: hero)
+        
+        navigationController?.show(detailViewController, sender: self)
+    }
+    
+    
+}
+    

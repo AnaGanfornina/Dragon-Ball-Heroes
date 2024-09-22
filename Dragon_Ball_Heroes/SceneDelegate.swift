@@ -22,18 +22,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             //Creamos un objeto window
             let window = UIWindow(windowScene: scene)
-            
-            //Instanciamos el primer view controller
-            //let viewController = FirstViewController()
         
             
             // Instanciamos nuestra lista de heroes
         
             let heroListViewController = HeroListViewController()
-            
-            
-            //Asignamos el prier vieo controller
-            window.rootViewController = heroListViewController
+                    
+            let navigationController = UINavigationController(rootViewController: HeroListViewController())
+
+            //Asignamos el prier view controller
+            //window.rootViewController = heroListViewController
+            window.rootViewController = navigationController
+
             window.makeKeyAndVisible()
             self.window = window
             
